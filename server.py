@@ -4,6 +4,11 @@ import requests
 import json
 import logging
 import time
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -11,7 +16,11 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Public API URLs (OpenWeatherMap)
 WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
 GEOCODING_API_URL = "http://api.openweathermap.org/geo/1.0/direct"
-API_KEY = "18e314856c1cb4169c275ad0a8ce4e65"  # Replace with your actual API key
+
+# Retrieve API key from environment variable
+API_KEY = os.getenv("WEATHER_API_KEY")
+if not API_KEY:
+    raise ValueError("No API key found. Set the WEATHER_API_KEY environment variable in your .env file.")
 
 connected_clients = 0
 lock = threading.Lock()
