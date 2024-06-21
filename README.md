@@ -40,21 +40,21 @@ Welcome to the Weather CLI Client and Server project! Easily fetch and view curr
 
 ### Start the Server
 
-Run the server script:
+### Run the server script:
 
 python server.py
 
 
 
-Run the Client
+## Run the Client
 
-Start the client script:
+### Start the client script:
 
 python client.py
+
+
+
 Enter a city name and get the current weather.
-
-
-
 
 
 ...
